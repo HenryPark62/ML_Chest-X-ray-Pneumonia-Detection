@@ -1,4 +1,4 @@
-# 🫁 폐렴 진단 딥러닝 모델 (Chest X-ray Pneumonia Detection using Deep Learning (ResNet50 + Grad-CAM))
+# 🫁 딥러닝 기반 폐렴 진단 모델 (Chest X-ray Pneumonia Detection using Deep Learning (ResNet50 + Grad-CAM))
 
 📌 프로젝트 개요
 
