@@ -16,7 +16,8 @@
 
 # 💡insight
 
+* 기존 Transfer Learning 모델과 Fine-tuned 모델의 Accuracy: 0.72 -> 0.95
 * EarlyStopping, CallBack, ModelCheckpoint (best model saving) 을 적절히 활용하자. - 학습 시간 단축
-* 모델에 따라 적절한 fine-tuning 기법을 파악하고, 이를 활용하여 Acurracy를 높이자.
+* 모델에 따라 적절한 fine-tuning 기법을 파악하고, 이를 활용하여 Accuracy를 높이자.
 * CNN에서는 상위 레이어의 trainable을 조정 (True)하여 훈련하자. -> 상위 레이어는 출력층에 가깝고, 클래스 특화된 특징을 감지하며, 이는 도메인 특화에 최적화가 될 수 있다. (하위 레이어는 입력층에 가깝고, 기본적인 시각적 패턴을 감지한다)
 * Batch Size, Epoch만 조정하는 것은 학습 효율 튜닝일 뿐, 신경망의 가중치를 조정하는 fine-tuning이 아님
