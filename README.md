@@ -4,7 +4,9 @@
 
 흉부 X-ray 이미지를 활용해 폐렴 여부를 자동으로 분류하는 딥러닝 기반 이진 분류 모델을 개발했습니다.
 
-기존의 pretrained ResNet50을 활용하여, 전이학습 기반 ResNet50, fine-tuned ResNet50을 통해 학습 효율을 높였으며, Grad-CAM을 통해 모델의 예측 결과를 시각적으로 해석할 수 있도록 했습니다.
+기존의 pretrained ResNet50을 활용하여, Transfer Learning ResNet50, fine-tuned ResNet50을 통해 Accuracy를 높였으며, Grad-CAM을 통해 모델의 예측 결과를 시각적으로 해석할 수 있도록 했습니다.
+
+* 기본적인 pretrained ResNet50은 가중치가 Imagenet으로 설정되어 있음, 이는 사물 분류용으로 훈련된 CNN (강아지, 고양이, 차 등 1000개 클래스를 분류) -> Transfer Learning을 통해 의료 이미지에 더욱 적합하도록 설정.
 
 <img src="https://github.com/user-attachments/assets/8df53b3d-681f-4f92-8538-eaad42521c9f" width="500" height="500">
 
