@@ -26,8 +26,11 @@
 * Batch Size, Epoch만 조정하는 것은 학습 효율 튜닝일 뿐, 신경망의 가중치를 조정하는 fine-tuning이 아님
 
 
-* validation(val) -> 학습 중 모니터링용 (early stopping, best weight 저장), 학습에 영향을 받았으므로 성능 측정용으로 부적합
-* test(test) -> 최종 성능 평가용 (처음 보는 데이터를 모델에 적용하여 성능 검증 가능)
+* 서로 다른 모델을 비교하기 위해서는 같은 데이터셋을 같은 조건에서 학습해야 함
+* train(train_generator) -> 학습 시 사용하는 학습용
+* validation(val_generator) -> 학습 중 모니터링용 (early stopping, best weight 저장), 학습에 영향을 받았으므로 성능 측정용으로 부적합
+* test(test_generator) -> 최종 성능 평가용 (처음 보는 데이터를 모델에 적용하여 성능 검증 가능)
+
 
 * 단순히 사전 학습된 모델을 사용한다고 baseline 모델보다 반드시 좋은 성과를 가져오는 것은 아니다. (도메인 특화된 모델이 되도록 fine-tuning할 필요가 있다.)
 * 어떻게 하면 모델의 정확도를 높일 수 있을 지 고민하며 연구의 흥미를 느끼게 되었다.
