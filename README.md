@@ -14,7 +14,7 @@
 
 
 
-# insight
+# 💡insight
 
 * EarlyStopping, CallBack, ModelCheckpoint (best model saving) 을 적절히 활용하자. - 학습 시간 단축
 * 모델에 따라 적절한 fine-tuning 기법을 파악하고, 이를 활용하여 Acurracy를 높이자.
