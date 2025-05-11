@@ -13,7 +13,7 @@
 | 버전 | 주요 특징 | 결과 요약 |
 |:----|:---------|:--------|
 | **Baseline CNN** | - 간단한 Conv2D + MaxPooling 기반 CNN 모델<br>- EarlyStopping, ModelCheckpoint 사용 | - Train 데이터에 과적합<br>- Pneumonia는 잘 맞추나 Normal 분류 성능 낮음 |
-| **Transfer Learning (ResNet50)** | - ImageNet으로 사전 학습된 ResNet50 모델 사용<br>- 전체 레이어 Freeze 후, Output Head만 학습 | - Pneumonia는 모두 맞췄지만<br>- Normal 클래스 완전히 분류 실패 |
+| **Transfer Learning (ResNet50)** | - ImageNet으로 사전 학습된 ResNet50 모델 사용<br>- 전체 레이어 Freeze 후, Output Head만 학습 | - Pneumonia는 모두 맞췄지만, Normal 클래스 완전히 분류 실패 |
 | **Fine-Tuning v1** | - ResNet50 상위 50개 레이어만 학습 가능<br>- Dropout 0.3 추가 | - 약간 개선<br>- 여전히 Normal 분류가 어려움 |
 | **Fine-Tuning v2** | - 상위 100개 레이어 학습 시도<br>- Learning Rate 축소 (1e-6) | - Normal 분류 성능이 오히려 하락 |
 | **Fine-Tuning v3** | - 데이터 증강(Data Augmentation) 강화<br>- Rotation, Shift, Brightness 조정 | - 여전히 Normal 분류 성능의 개선이 없음 |
