@@ -61,8 +61,8 @@
 
 # 💡Insight
 
-* Transfer Learning 모델과 Fine-tuned 모델의 Accuracy: 0.72 -> 0.95
-* Transfer Learning 모델과 Fine-tuned 모델의 학습 시간: 약 22분 (8epoch, earlystop) -> 약 35분 (7epoch, earlystop)
+* Transfer Learning 모델과 Fine-tuned 모델의 Accuracy: 0.62 -> 0.90
+* Transfer Learning 모델과 Fine-tuned 모델의 학습 시간: 약 22분 (8epoch, earlystop) -> 약 100분 (20epoch)
 * EarlyStopping, CallBack, ModelCheckpoint (best model saving) 을 적절히 활용하자. - 학습 시간 단축
 * 모델에 따라 적절한 fine-tuning 기법을 파악하고, 이를 활용하여 Accuracy를 높이자.
 * CNN에서는 상위 레이어의 trainable을 조정 (True)하여 훈련하자. -> 상위 레이어는 출력층에 가깝고, 클래스 특화된 특징을 감지하며, 이는 도메인 특화에 최적화가 될 수 있다. (하위 레이어는 입력층에 가깝고, 기본적인 시각적 패턴을 감지한다)
@@ -75,5 +75,5 @@
 * test(test_generator) -> 최종 성능 평가용 (처음 보는 데이터를 모델에 적용하여 성능 검증 가능)
 
 
-* 단순히 사전 학습된 모델을 사용한다고 baseline 모델보다 반드시 좋은 성과를 가져오는 것은 아니다. (도메인 특화된 모델이 되도록 fine-tuning할 필요가 있다.)
-* 어떻게 하면 모델의 정확도를 높일 수 있을 지 고민하며 연구의 흥미를 느끼게 되었다.
+* 단순히 사전 학습된 모델을 사용한다고 baseline 모델보다 반드시 좋은 성과를 가져오는 것은 아니다. (도메인 특화된 모델이 되도록 Fine-tuning할 필요가 있다.)
+* 어떻게 하면 모델의 정확도를 높일 수 있을 지 고민하며 다양한 방법들의 튜닝들을 시도했고, 연구의 흥미를 느끼게 되었다.
