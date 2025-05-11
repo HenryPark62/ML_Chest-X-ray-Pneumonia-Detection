@@ -15,14 +15,14 @@
 | **Baseline CNN** | - 간단한 Conv2D + MaxPooling 기반 CNN 모델<br>- EarlyStopping, ModelCheckpoint 사용 | - Train 데이터에 과적합<br>- Pneumonia는 잘 맞추나 Normal 분류 성능 낮음 |
 | **Transfer Learning (ResNet50)** | - ImageNet으로 사전 학습된 ResNet50 모델 사용<br>- 전체 레이어 Freeze 후, Output Head만 학습 | - Pneumonia는 모두 맞췄지만<br>- Normal 클래스 완전히 분류 실패 |
 | **Fine-Tuning v1** | - ResNet50 상위 50개 레이어만 학습 가능<br>- Dropout 0.3 추가 | - 약간 개선<br>- 여전히 Normal 분류가 어려움 |
-| **Fine-Tuning v2** | - 상위 100개 레이어 학습 가능<br>- Learning Rate 축소 (1e-6) | - Pneumonia 성능 유지<br>- Normal 분류 약간 향상 |
-| **Fine-Tuning v3** | - 데이터 증강(Data Augmentation) 강화<br>- Rotation, Shift, Brightness 조정 | - Generalization 약간 향상<br>- 여전히 Overfitting 가능성 존재 |
-| **Fine-Tuning v4** | - Dropout 비율 증가 (0.5)<br>- 조기 종료(EarlyStopping) 조건 완화 | - Overfitting 경향 다소 완화<br>- Validation 성능 안정화 시도 |
-| **Fine-Tuning v5** | - 클래스 가중치(class_weight) 적용<br>- Pneumonia와 Normal 비율 보정 | - Normal 클래스 정확도 큰 폭 향상<br>- 테스트 정확도 89% 이상 도달 |
+| **Fine-Tuning v2** | - 상위 100개 레이어 학습 시도<br>- Learning Rate 축소 (1e-6) | - Normal 분류 성능이 오히려 하락 |
+| **Fine-Tuning v3** | - 데이터 증강(Data Augmentation) 강화<br>- Rotation, Shift, Brightness 조정 | - 여전히 Normal 분류 성능의 개선이 없음 |
+| **Fine-Tuning v4** | - Dropout 비율 증가 (0.5)<br>- 조기 종료(EarlyStopping) 조건 완화 | - 해당 방법들로는 Normal 분류 성능 개선의 여지가 없음을 인지|
+| **Fine-Tuning v5** | - 클래스 가중치(class_weight) 적용<br>- Pneumonia와 Normal 비율 보정 | - Normal 클래스 정확도 큰 폭 향상<br>- 테스트 정확도 84% 이상 도달 |
 | **Fine-Tuning v6 (최종)** | - Label Smoothing 추가<br>- ReduceLROnPlateau 적용<br>- 데이터 증강 최적화 | - Test 정확도 **90% 돌파**<br>- 모델 일반화 성능 최상 |
 
 ---
-**포인트 요약**
+**Reaserch Summary**
 - **Baseline → Transfer Learning → Fine-Tuning → Regularization 강화 → 클래스 가중치 조정** 흐름으로 점진적 성능 개선
 - **Fine-Tuning v6**가 가장 좋은 결과 (Test Accuracy ≈ 90.7%)
 
@@ -31,12 +31,9 @@
 	•	Fine-Tuning: 하위 레이어 Freeze, 상위 50개 레이어만 학습
 	•	Optimizer: Adam (Learning Rate 1e-4)
 	•	Loss: BinaryCrossentropy(Label Smoothing=0.1)
-	•	Data Augmentation:
-	•	Rotation, Shift, Zoom, Brightness Change
-	•	Regularization:
-	•	Dropout 0.5
-	•	Scheduler:
-	•	ReduceLROnPlateau 사용 (EarlyStopping 병행)
+	•	Data Augmentation: Rotation, Shift, Zoom, Brightness Change
+	•	Regularization: Dropout 0.5
+	•	Scheduler: ReduceLROnPlateau 사용 (EarlyStopping 병행)
 
 	•	Test Accuracy: 약 90.7%
 	•	ROC Curve: AUC(Area Under Curve) 0.957
