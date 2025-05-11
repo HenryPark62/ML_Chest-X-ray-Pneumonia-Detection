@@ -26,17 +26,17 @@
 - **Baseline → Transfer Learning → Fine-Tuning → Regularization 강화 → 클래스 가중치 조정** 흐름으로 점진적 성능 개선
 - **Fine-Tuning v6**가 가장 좋은 결과 (Test Accuracy ≈ 90.7%)
 
-- 최종 모델 (Fine-Tuning v6)
-	•	Base Model: ResNet50 (ImageNet 사전학습)
-	•	Fine-Tuning: 하위 레이어 Freeze, 상위 50개 레이어만 학습
-	•	Optimizer: Adam (Learning Rate 1e-4)
-	•	Loss: BinaryCrossentropy(Label Smoothing=0.1)
-	•	Data Augmentation: Rotation, Shift, Zoom, Brightness Change
-	•	Regularization: Dropout 0.5
-	•	Scheduler: ReduceLROnPlateau 사용 (EarlyStopping 병행)
+- 최종 모델 (Fine-Tuning v6)<br>
+	•	Base Model: ResNet50 (ImageNet 사전학습)<br>
+	•	Fine-Tuning: 하위 레이어 Freeze, 상위 50개 레이어만 학습<br>
+	•	Optimizer: Adam (Learning Rate 1e-4)<br>
+	•	Loss: BinaryCrossentropy(Label Smoothing=0.1)<br>
+	•	Data Augmentation: Rotation, Shift, Zoom, Brightness Change<br>
+	•	Regularization: Dropout 0.5<br>
+	•	Scheduler: ReduceLROnPlateau 사용 (EarlyStopping 병행)<br>
 
-	•	Test Accuracy: 약 90.7%
-	•	ROC Curve: AUC(Area Under Curve) 0.957
+	•	Test Accuracy: 약 90.7%<br>
+	•	ROC Curve: AUC(Area Under Curve) 0.957<br>
 
 
 
