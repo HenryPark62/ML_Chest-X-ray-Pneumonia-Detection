@@ -61,7 +61,7 @@
 
 
 
-### 결론 (Baseline CNN vs Fine-tuning ResNet50)
+## 결론 (Baseline CNN vs Fine-tuning ResNet50)
 
 ![5ced97f9-c2b4-45b3-aff7-572c24942f75](https://github.com/user-attachments/assets/1b6b7b0c-f7ee-4180-b4cc-b1d250b7eacb)
 
