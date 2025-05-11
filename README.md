@@ -48,7 +48,7 @@
 
 * 기본적인 pretrained ResNet50은 가중치가 Imagenet으로 설정되어 있음, 이는 사물 분류용으로 훈련된 CNN (강아지, 고양이, 차 등 1000개 클래스를 분류) -> Transfer Learning을 통해 의료 이미지에 더욱 적합하도록 설정.
 
-
+## ROC Curve, Confusion Matrix, Classification Report
 
 ![12cbabe7-9abd-41e2-a28c-f8e1bf0485f6](https://github.com/user-attachments/assets/d2bc900e-082b-4f22-9675-54855804a450)
 
@@ -61,6 +61,18 @@
 
 
 
+### 결론 (Baseline CNN vs Fine-tuning ResNet50)
+
+![5ced97f9-c2b4-45b3-aff7-572c24942f75](https://github.com/user-attachments/assets/1b6b7b0c-f7ee-4180-b4cc-b1d250b7eacb)
+
+![a2d6cc22-129f-4d1d-9ae9-9c7d47534b09](https://github.com/user-attachments/assets/4fc34933-feba-445c-b5de-fed89622242f)
+
+<img width="592" alt="스크린샷 2025-05-11 오후 8 28 51" src="https://github.com/user-attachments/assets/e9f0b816-5105-4c7c-aa8e-09daff101ac0" />
+
+
+
+
+## Grad-CAM 시각화 
 
 
 <img src="https://github.com/user-attachments/assets/8df53b3d-681f-4f92-8538-eaad42521c9f" width="500" height="500">
