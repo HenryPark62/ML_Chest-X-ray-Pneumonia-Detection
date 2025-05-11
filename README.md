@@ -6,7 +6,7 @@
 
 📌 데이터셋
 데이터 출처: Kaggle Chest X-ray Pneumonia Dataset
-구성: Train: 5216장, Test: 624장, Validation: 16장 (부족하기 때문에 Train에서 10%를 따로 Validation으로 구성)
+구성: Train: 5216장, Test: 624장, Validation: 16장 (Validation이 부족하기 때문에 Train에서 10%를 따로 Validation으로 구성)
 
 📌 모델 구축, 튜닝 및 연구
 
@@ -19,7 +19,7 @@
 | **Fine-Tuning v3** | - 데이터 증강(Data Augmentation) 강화<br>- Rotation, Shift, Brightness 조정 | - Generalization 약간 향상<br>- 여전히 Overfitting 가능성 존재 |
 | **Fine-Tuning v4** | - Dropout 비율 증가 (0.5)<br>- 조기 종료(EarlyStopping) 조건 완화 | - Overfitting 경향 다소 완화<br>- Validation 성능 안정화 시도 |
 | **Fine-Tuning v5** | - 클래스 가중치(class_weight) 적용<br>- Pneumonia와 Normal 비율 보정 | - Normal 클래스 정확도 큰 폭 향상<br>- 테스트 정확도 89% 이상 도달 |
-| **Fine-Tuning v6 (최종)** | - Optimizer를 Adam으로 변경<br>- Label Smoothing 추가<br>- ReduceLROnPlateau 적용<br>- 데이터 증강 최적화 | - Test 정확도 **90% 돌파**<br>- 모델 일반화 성능 최상 |
+| **Fine-Tuning v6 (최종)** | - Label Smoothing 추가<br>- ReduceLROnPlateau 적용<br>- 데이터 증강 최적화 | - Test 정확도 **90% 돌파**<br>- 모델 일반화 성능 최상 |
 
 ---
 **포인트 요약**
@@ -61,18 +61,25 @@
 
 # 💡Insight
 
-* Transfer Learning 모델과 Fine-tuned 모델의 Accuracy: 0.62 -> 0.90
-* Transfer Learning 모델과 Fine-tuned 모델의 학습 시간: 약 22분 (8epoch, earlystop) -> 약 100분 (20epoch)
+* Baseline CNN 모델의 Accuracy: 0.74 (학습시간 약 8분, 4epoch, early stop)
+* Transfer Learning 모델의 Accuracy: 0.62 (학습시간 약 30분, 10epoch)
+* Fine-tuned 모델의 Accuracy: 0.90 (학습시간 약 100분, 20epoch)
+  
+
 * EarlyStopping, CallBack, ModelCheckpoint (best model saving) 을 적절히 활용하자. - 학습 시간 단축
 * 모델에 따라 적절한 fine-tuning 기법을 파악하고, 이를 활용하여 Accuracy를 높이자.
 * CNN에서는 상위 레이어의 trainable을 조정 (True)하여 훈련하자. -> 상위 레이어는 출력층에 가깝고, 클래스 특화된 특징을 감지하며, 이는 도메인 특화에 최적화가 될 수 있다. (하위 레이어는 입력층에 가깝고, 기본적인 시각적 패턴을 감지한다)
 * Batch Size, Epoch만 조정하는 것은 학습 효율 튜닝일 뿐, 신경망의 가중치를 조정하는 fine-tuning이 아님
+* fine-tuning한 모델의 confusion matrix와 classification report를 보면서 test 데이터에 대해 맞추지 못하는 부분을 캐치하고, 해당 부분에 대해 클래스 가중치를 부여하여 더욱 잘 맞출 수 있도록 조정
 
 
 * 서로 다른 모델을 비교하기 위해서는 같은 데이터셋을 같은 조건에서 학습해야 함
 * train(train_generator) -> 학습 시 사용하는 학습용
 * validation(val_generator) -> 학습 중 모니터링용 (early stopping, best weight 저장), 학습에 영향을 받았으므로 성능 측정용으로 부적합
 * test(test_generator) -> 최종 성능 평가용 (처음 보는 데이터를 모델에 적용하여 성능 검증 가능)
+
+* 경량 모델을 활용하여 fine-tuning을 시도하는 방법도 좋을 것 같다.
+* 앙상블 기법을 적용하면 추가 성능 향상을 기대할 수 있다.
 
 
 * 단순히 사전 학습된 모델을 사용한다고 baseline 모델보다 반드시 좋은 성과를 가져오는 것은 아니다. (도메인 특화된 모델이 되도록 Fine-tuning할 필요가 있다.)
