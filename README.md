@@ -75,10 +75,12 @@
 ## Grad-CAM 시각화 
 
 
-<img src="https://github.com/user-attachments/assets/8df53b3d-681f-4f92-8538-eaad42521c9f" width="500" height="500">
 
-![fef685ae-09c3-4e8e-8bc4-67a4160b46be](https://github.com/user-attachments/assets/1155b95b-e52a-4b88-91e5-9da9b869a4e4)
-![026ce00f-3821-429a-a4da-44cfba0197e7](https://github.com/user-attachments/assets/6acd185c-9380-4e72-8f86-cbdb38eef6e8)
+![5b59801a-37f5-49a6-8da8-3f4af2300e29](https://github.com/user-attachments/assets/fa1a4096-e43a-47ff-be32-e21615d498fa)
+
+![43d9261d-8895-4d96-bd9a-14a5cb920c1d](https://github.com/user-attachments/assets/a8ecedc5-7ed2-4cad-9ed1-b0d3f313c2e9)
+
+![08c7905a-f65d-438c-ba74-739593f37031](https://github.com/user-attachments/assets/5d083114-bbb8-4589-a707-9f6a6486f52d)
 
 
 
