@@ -74,7 +74,7 @@
 
 ## Grad-CAM 시각화 
 
-
+* Fine-tuning 모델은 폐 병변 위주 Segmentation Learning을 하지 않아 히트맵이 심장 부위를 위주로 나타난다. Grad CAM 함수뿐만 아니라, 모델 학습부터 폐 병변 위주의 학습을 한다면 Visualization이 더욱 효과적일 것이다.
 
 ![5b59801a-37f5-49a6-8da8-3f4af2300e29](https://github.com/user-attachments/assets/fa1a4096-e43a-47ff-be32-e21615d498fa)
 
