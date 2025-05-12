@@ -104,9 +104,15 @@
 * validation(val_generator) -> 학습 중 모니터링용 (early stopping, best weight 저장), 학습에 영향을 받았으므로 성능 측정용으로 부적합
 * test(test_generator) -> 최종 성능 평가용 (처음 보는 데이터를 모델에 적용하여 성능 검증 가능)
 
-* 경량 모델을 활용하여 fine-tuning을 시도하는 방법도 좋을 것 같다.
+* 경량 모델을 활용하여 Fine-tuning을 시도하는 방법도 좋을 것 같다.
 * 앙상블 기법을 적용하면 추가 성능 향상을 기대할 수 있다.
 
 
 * 단순히 사전 학습된 모델을 사용한다고 baseline 모델보다 반드시 좋은 성과를 가져오는 것은 아니다. (도메인 특화된 모델이 되도록 Fine-tuning할 필요가 있다.)
 * 어떻게 하면 모델의 정확도를 높일 수 있을 지 고민하며 다양한 방법들의 튜닝들을 시도했고, 연구의 흥미를 느끼게 되었다.
+* 이번 프로젝트는 Visualization보단 Fine-tuning을 통해 모델의 Accuracy를 향상시킨 것으로 만족하자.
+
+
+# 💡Reference
+https://www.kaggle.com/code/ravaghi/pneumonia-in-chest-x-rays-inceptionv3-grad-cam#references (추후 Grad CAM Visualization) 
+
